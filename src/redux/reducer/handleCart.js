@@ -45,7 +45,7 @@ const handleCart = (state = cart, action) => {
       } else {
         return [...state, { ...product, qty: 1 }];
       }
-      break;
+      // break;
     case "DELITEM":
       const exist2 = state.find((x) => x.id === product.id);
       // Remove unreachable break statement
@@ -61,7 +61,7 @@ const handleCart = (state = cart, action) => {
 
     default:
       return state;
-      break;
+      // break;
   }
 };
 
