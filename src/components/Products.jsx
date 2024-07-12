@@ -36,25 +36,41 @@ const Products = () => {
 
   //   getProducts();
   // }, []);
-useEffect(() => {
-  const componentMounted = true; 
+// useEffect(() => {
+//   const componentMounted = true; 
 
+//   const getProducts = async () => {
+//     setLoading(true);
+//     const response = await fetch("https://fakestoreapi.com/products/");
+//     if (componentMounted) { 
+//       setData(await response.clone().json());
+//       setFilter(await response.json());
+//       setLoading(false);
+//     }
+
+//     return () => {
+//       componentMounted = false; // No need for useRef
+//     };
+//   };
+
+//   getProducts();
+// }, []);
+  useEffect(() => {
   const getProducts = async () => {
     setLoading(true);
     const response = await fetch("https://fakestoreapi.com/products/");
-    if (componentMounted) { 
-      setData(await response.clone().json());
-      setFilter(await response.json());
-      setLoading(false);
-    }
+    setData(await response.clone().json());
+    setFilter(await response.json());
+    setLoading(false);
 
-    return () => {
-      componentMounted = false; // No need for useRef
-    };
+    // Removed unused cleanup function
   };
 
   getProducts();
 }, []);
+
+// Removed unused variable declaration
+
 
   const Loading = () => {
     return (
@@ -158,3 +174,4 @@ useEffect(() => {
 };
 
 export default Products;
+
